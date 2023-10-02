@@ -7,7 +7,8 @@
   },
   "author": "",
   "dependencies": {
-    "express": "^4.18.2",
+    "chromecast-api": "^0.4.2",
+    "fastify": "^4.23.2",
     "shelljs": "^0.8.5"
   }
 }

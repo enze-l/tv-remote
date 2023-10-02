@@ -1,15 +1,13 @@
-const express = require("express")
 const shell = require("shelljs")
-const http = require("http")
+const fastify = require('fastify')
 
-const app = express()
-const server = http.createServer(app)
+const app = fastify()
 
-
-app.get("/toggle", (req, res) =>{
+app.get("/toggle", (req, res) => {
     shell.exec("irsend SEND_ONCE Standard KEY_POWER")
     console.log("toggle accessed")
     res.send("TV power toggled")
+    shell.exec("node chromecast.js")
 })
 
 app.get("/source", (req, res) =>{
@@ -25,5 +23,6 @@ app.get("/source/double", (req, res) =>{
 })
 
 
-server.listen(8000, "0.0.0.0", ()=>{
-    console.log("Listening on http")})
+app.listen({port: 8000}).then(() => {
+    console.log("App running")
+})
