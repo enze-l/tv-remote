@@ -23,6 +23,6 @@ app.get("/source/double", (req, res) =>{
 })
 
 
-app.listen({port: 8000}).then(() => {
+app.listen({port: 8000, host: "0.0.0.0"}).then(() => {
     console.log("App running")
 })
